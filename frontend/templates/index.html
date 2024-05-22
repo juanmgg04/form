@@ -1,0 +1,213 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta de satisfacción</title>
+    <link rel="stylesheet" href="{% static 'styleForm.css' %}">
+</head>
+<body>
+    <section>
+        <header>
+            <h1>Formulario</h1>
+            <p>Responda las siguientes preguntas considerando como metodo de validación  "la escala del likert"
+                siendo: </p> 
+                <p> 1. totalmente en desacuerdo, </p>
+                <p> 2. algo en desacuerdo, </p>
+                <p> 3. ni deacuerdo ni en desacuerdo, </p> 
+                <p> 4. algo en deacuerdo, </p>
+                <p> 5. totalmente de acuerdo. </p>
+        </header>
+
+        <form method="post" action="/">
+            {% csrf_token %}
+            <div class="containerQuestions">
+                <label for="name">Cuál es tu nombre completo?</label>
+                <div class="">
+                    <input class="input" type="text" id="name" placeholder="Nombre" required style="border: none;
+                    border-bottom: 2px solid rgba(131, 0, 131, 0.557);
+                    outline: none;
+                    font-size: 17px;
+                    margin-top: 20px;
+                    margin-left: 150px;
+                    margin-right: auto;
+                    margin-bottom: 20px;
+                    font-family: 'PT Sans', sans-serif;
+                    display: block;
+                    width: 400px;
+                    padding: 5px 20px;">
+                </div>
+            </div>
+            <div class="containerQuestions">
+                <label for="lamp_adjustment">¿La lámpara permite ajustar fácilmente las tonalidades de la luz (cálida, fría y neutra)?</label>
+                <div class="containerOptions">
+                    <button type="button" onclick="setEmojiValue('lamp_adjustment', 1)"><img src="{% static '/IMG/enojado.svg' %}" width="55px" alt="Emoji enojado"></button>
+                    <button type="button" onclick="setEmojiValue('lamp_adjustment', 2)"><img src="{% static '/IMG/triste.svg' %}" width="50px" alt="Emoji triste"></button>
+                    <button type="button" onclick="setEmojiValue('lamp_adjustment', 3)"><img src="{% static '/IMG/normal.svg' %}" width="50px" alt="Emoji normal"></button>
+                    <button type="button" onclick="setEmojiValue('lamp_adjustment', 4)"><img src="{% static '/IMG/feliz.svg' %}" width="50px" alt="Emoji feliz"></button>
+                    <button type="button" onclick="setEmojiValue('lamp_adjustment', 5)"><img src="{% static '/IMG/alegre.svg' %}" width="50px" alt="Emoji Muy feliz"></button>
+                </div>
+                <input type="hidden" id="lamp_adjustment" name="lamp_adjustment" required>
+            </div>
+            <div class="containerQuestions">
+                <label for="">Cree que los tonos verdes usados para el diseño de la lámpara sean los adecuados para esta y el ambiente donde sera utilizada?</label>
+                <div class="containerOptions">
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 1)"><img src="{% static '/IMG/enojado.svg' %}" width="55px" alt="Emoji enojado"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 2)"><img src="{% static '/IMG/triste.svg' %}" width="50px" alt="Emoji triste"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 3)"><img src="{% static '/IMG/normal.svg' %}" width="50px" alt="Emoji normal"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 4)"><img src="{% static '/IMG/feliz.svg' %}" width="50px" alt="Emoji feliz"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 5)"><img src="{% static '/IMG/alegre.svg' %}" width="50px" alt="Emoji Muy feliz"></button>
+                </div>
+            </div>
+            <div class="containerQuestions">
+                <label for="">¿El tamaño de la lámpara se le hace adecuado para llevarla a camping?</label>
+                <div class="containerOptions">
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 1)"><img src="{% static '/IMG/enojado.svg' %}" width="55px" alt="Emoji enojado"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 2)"><img src="{% static '/IMG/triste.svg' %}" width="50px" alt="Emoji triste"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 3)"><img src="{% static '/IMG/normal.svg' %}" width="50px" alt="Emoji normal"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 4)"><img src="{% static '/IMG/feliz.svg' %}" width="50px" alt="Emoji feliz"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 5)"><img src="{% static '/IMG/alegre.svg' %}" width="50px" alt="Emoji Muy feliz"></button>
+                </div>
+            </div>
+            <div class="containerQuestions">
+                <label for="">¿El aro facilita que la lámpara sea colocada en distintos lugares?</label>
+                <div class="containerOptions">
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 1)"><img src="{% static '/IMG/enojado.svg' %}" width="55px" alt="Emoji enojado"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 2)"><img src="{% static '/IMG/triste.svg' %}" width="50px" alt="Emoji triste"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 3)"><img src="{% static '/IMG/normal.svg' %}" width="50px" alt="Emoji normal"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 4)"><img src="{% static '/IMG/feliz.svg' %}" width="50px" alt="Emoji feliz"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 5)"><img src="{% static '/IMG/alegre.svg' %}" width="50px" alt="Emoji Muy feliz"></button>
+                </div>
+            </div>
+            <div class="containerQuestions">
+                <label for="">¿El agarre se adapta adecuadamente a la mano y es cómodo?</label>
+                <div class="containerOptions">
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 1)"><img src="{% static '/IMG/enojado.svg' %}" width="55px" alt="Emoji enojado"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 2)"><img src="{% static '/IMG/triste.svg' %}" width="50px" alt="Emoji triste"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 3)"><img src="{% static '/IMG/normal.svg' %}" width="50px" alt="Emoji normal"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 4)"><img src="{% static '/IMG/feliz.svg' %}" width="50px" alt="Emoji feliz"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 5)"><img src="{% static '/IMG/alegre.svg' %}" width="50px" alt="Emoji Muy feliz"></button>
+                </div>
+            </div>
+            <div class="containerQuestions">
+                <label for="">¿La lampara es  facil de transportar?</label>
+                <div class="containerOptions">
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 1)"><img src="{% static '/IMG/enojado.svg' %}" width="55px" alt="Emoji enojado"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 2)"><img src="{% static '/IMG/triste.svg' %}" width="50px" alt="Emoji triste"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 3)"><img src="{% static '/IMG/normal.svg' %}" width="50px" alt="Emoji normal"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 4)"><img src="{% static '/IMG/feliz.svg' %}" width="50px" alt="Emoji feliz"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 5)"><img src="{% static '/IMG/alegre.svg' %}" width="50px" alt="Emoji Muy feliz"></button>
+                </div>
+            </div>
+            <div class="containerQuestions">
+                <label for="">¿La lampara emite luz de manera uniforme y sin zonas oscuras?</label>
+                <div class="containerOptions">
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 1)"><img src="{% static '/IMG/enojado.svg' %}" width="55px" alt="Emoji enojado"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 2)"><img src="{% static '/IMG/triste.svg' %}" width="50px" alt="Emoji triste"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 3)"><img src="{% static '/IMG/normal.svg' %}" width="50px" alt="Emoji normal"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 4)"><img src="{% static '/IMG/feliz.svg' %}" width="50px" alt="Emoji feliz"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 5)"><img src="{% static '/IMG/alegre.svg' %}" width="50px" alt="Emoji Muy feliz"></button>
+                </div>
+            </div>
+            <div class="containerQuestions">
+                <label for="">¿La lampara cumple con sus expectativas para usarla en camping?</label>
+                <div class="containerOptions">
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 1)"><img src="{% static '/IMG/enojado.svg' %}" width="55px" alt="Emoji enojado"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 2)"><img src="{% static '/IMG/triste.svg' %}" width="50px" alt="Emoji triste"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 3)"><img src="{% static '/IMG/normal.svg' %}" width="50px" alt="Emoji normal"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 4)"><img src="{% static '/IMG/feliz.svg' %}" width="50px" alt="Emoji feliz"></button>
+                    <button type="button" onclick="setEmojiValue('pregunta_1', 5)"><img src="{% static '/IMG/alegre.svg' %}" width="50px" alt="Emoji Muy feliz"></button>
+                </div>
+            </div>
+            <header>
+                <p>Responda las siguientes preguntas de acuerdo al método de validacion "diferencial semantico" </p> 
+            </header>
+            <div class="containerRange">
+                <label for="">¿Como es la adpatabilidad de las tonalidades de la Luz?</label>
+                <div class="items">
+                    <span>Limitada</span>
+                    <span>Versatil</span>
+                </div>
+                <input type="range" id="rating" name="rating" min="0" max="2" step="1" oninput="setRangeValue('adaptability', this.value)">
+                <button type="button">Aceptar</button>
+            </div>
+            <div class="containerRange">
+                <label for="">¿ que tan útil le parece el cambio de las tonalidades de la luz ( neutra, calida y fría)?</label>
+                <div class="items">
+                    <span>Inutil</span>
+                    <span>Util</span>
+                </div>
+                <input type="range" id="rating" name="rating" min="0" max="2" step="1" oninput="setRangeValue('usefulness', this.value)">
+                <button type="button">Aceptar</button>
+            </div>
+            <div class="containerRange">
+                <label for="">¿como considera el peso de la lampara?</label>
+                <div class="items">
+                    <span>Pesado</span>
+                    <span>Ligero</span>
+                </div>
+                <input type="range" id="rating" name="rating" min="0" max="2" step="1">
+                <button type="button">Aceptar</button>
+            </div>
+            <div class="containerRange">
+                <label for="">¿que tan resistente considera que sera la lampara?</label>
+                <div class="items">
+                    <span>Débil</span>
+                    <span>Resistente</span>
+                </div>
+                <input type="range" id="rating" name="rating" min="0" max="2" step="1">
+                <button type="button">Aceptar</button>
+            </div>
+            <div class="containerRange">
+                <label for="">¿Como le parece el brillo de la luz?</label>
+                <div class="items">
+                    <span>Débil</span>
+                    <span>Intenso</span>
+                </div>
+                <input type="range" id="rating" name="rating" min="0" max="2" step="1">
+                <button type="button">Aceptar</button>
+            </div>
+            <div class="containerRange">
+                <label for="">¿como le parece su facilidad de uso?</label>
+                <div class="items">
+                    <span>Complicado</span>
+                    <span>Sencillo</span>
+                </div>
+                <input type="range" id="rating" name="rating" min="0" max="2" step="1">
+                <button type="button">Aceptar</button>
+            </div>
+            <div class="containerRange">
+                <label for="">¿como le parece la estetica del diseño ?</label>
+                <div class="items">
+                    <span>Poco atractiva</span>
+                    <span>Muy atractiva</span>
+                </div>
+                <input type="range" id="rating" name="rating" min="0" max="2" step="1">
+                <button type="button">Aceptar</button>
+            </div>
+            
+            <button type="submit" class="submit">Enviar formulario</button>
+        </form>
+    </section>
+    <script>
+        function setEmojiValue(field, value) {
+            document.getElementById(field).value = value;
+        }
+
+        function setRangeValue(field, value) {
+            const labels = {
+                adaptability: ["Limitada", "Versátil"],
+                usefulness: ["Inútil", "Útil"],
+                weight: ["Pesado", "Ligero"],
+                durability: ["Débil", "Resistente"],
+                brightness: ["Débil", "Intenso"],
+                ease_of_use: ["Complicado", "Sencillo"],
+                design_aesthetic: ["Poco atractiva", "Muy atractiva"]
+            };
+            document.getElementById(field).value = labels[field][value];
+        }
+    </script>
+</body>
+</html>
