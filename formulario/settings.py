@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -79,10 +80,7 @@ WSGI_APPLICATION = 'formulario.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default="postgresql://postgres:CMDnoKsvtVclGsLVAiNsdqTcupSthQaW@roundhouse.proxy.rlwy.net:11831/railway")
 }
 
 
@@ -127,6 +125,8 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+CSRF_TRUSTED_ORIGINS = ['https://form-production-5763.up.railway.app']
 
 #web: python manage.py collectstatic && gunicorn formulario.wsgi
 
