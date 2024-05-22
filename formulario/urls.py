@@ -28,6 +28,7 @@ urlpatterns = [
     path('', views.formulario_view, name='Index'),
     # path('thank-you/', views.thank_you_view, name='thank_you'),
     # path('formulario/', views.formulario_view, name='formulario'),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] 
+# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
